@@ -8,19 +8,7 @@ const cyan = {
     600: "#52617A",
     700: "#3E495B",
     800: "#29313D",
-    900: "#15181E",
-};
-const green = {
-    50: "#EAFBED",
-    100: "#C3F3CD",
-    200: "#9DEBAD",
-    300: "#77E48C",
-    400: "#51DC6C",
-    500: "#41D95F",
-    600: "#22AA3D",
-    700: "#19802E",
-    800: "#11551E",
-    900: "#082B0F",
+    900: "#1B2028",
 };
 const red = {
     50: "#F6F2EF",
@@ -36,7 +24,6 @@ const red = {
 };
 
 export const colors = {
-    primary: green,
+    primary: red,
     secondary: cyan,
-    tertiary: red,
 };

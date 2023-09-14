@@ -1,15 +1,21 @@
 import React from "react";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
+import { Flex } from "@chakra-ui/react";
 import MainLayout from "@/layout/MainLayout";
-import { Flex } from "@chakra-ui/layout";
 
 const Home: NextPage = () => {
-    const navigator = useRouter();
-    return;
-    <MainLayout>
-        <Flex direction="column">a</Flex>
-    </MainLayout>;
+    return (
+        <MainLayout navbar={{ colorTheming: "darkCyan", hasNavbar: true }}>
+            <Flex
+                h="100vh"
+                bgColor="secondary.900"
+                bgAttachment="fixed"
+                flexDirection="column"
+            >
+                A
+            </Flex>
+        </MainLayout>
+    );
 };
 
 export default Home;
