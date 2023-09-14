@@ -4,6 +4,7 @@ import { Flex } from "@chakra-ui/react";
 import MainLayout from "@/layout/MainLayout";
 import HomeCarousel from "@/components/HomeCarousel";
 import OptionsNavigation from "@/components/OptionsNavigation";
+import Categories from "@/components/Categories";
 
 const Home: NextPage = () => {
     return (
@@ -15,6 +16,7 @@ const Home: NextPage = () => {
             >
                 <HomeCarousel />
                 <OptionsNavigation />
+                <Categories />
             </Flex>
         </MainLayout>
     );
