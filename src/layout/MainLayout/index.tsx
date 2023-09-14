@@ -1,7 +1,7 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import SiteHead from "@/components/SiteHead";
 import Navbar from "../navbar";
+import SiteHead from "@/components/SiteHead";
 
 interface IProps {
     children: React.ReactNode;

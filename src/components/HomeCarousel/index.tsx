@@ -57,6 +57,7 @@ const HomeCarousel: React.FC = () => {
                 showIndicators={false}
                 showArrows={false}
                 showStatus={false}
+                showThumbs={false}
                 width="100%"
                 infiniteLoop
                 interval={2000}
