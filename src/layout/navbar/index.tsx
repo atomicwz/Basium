@@ -14,6 +14,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
             left={0}
             h={50}
             w="100%"
+            zIndex={1000}
             alignItems="center"
             bg={colorTheming === "darkCyan" ? "secondary.900" : "primary.500"}
             py={10}
@@ -30,42 +31,42 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                     <Text
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
-                        fontWeight={500}
+                        fontWeight={600}
                     >
                         Início
                     </Text>
                     <Text
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
-                        fontWeight={500}
+                        fontWeight={600}
                     >
                         Feminino
                     </Text>
                     <Text
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
-                        fontWeight={500}
+                        fontWeight={600}
                     >
                         Todos os produtos
                     </Text>
                     <Text
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
-                        fontWeight={500}
+                        fontWeight={600}
                     >
                         Dicas
                     </Text>
                     <Text
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
-                        fontWeight={500}
+                        fontWeight={600}
                     >
                         Sobre
                     </Text>
                     <Text
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
-                        fontWeight={500}
+                        fontWeight={600}
                     >
                         Contato
                     </Text>

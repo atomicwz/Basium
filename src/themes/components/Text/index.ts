@@ -6,6 +6,7 @@ export const Text: ComponentStyleConfig = {
         lineHeight: 1.2,
         color: "white",
         cursor: "default",
+        textAlign: "left",
         transition: ".4s",
         fontFamily: "'League Spartan', sans-serif",
     },
