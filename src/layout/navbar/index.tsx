@@ -26,7 +26,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                 alignItems="center"
                 mx="auto"
             >
-                <Image src="img/marca_cabecalho.png" alt="Logo" w={32} />
+                <Image src="/img/marca_cabecalho.png" alt="Logo" w={32} />
                 <Flex gap={10} alignItems="center">
                     <Text
                         cursor="pointer"

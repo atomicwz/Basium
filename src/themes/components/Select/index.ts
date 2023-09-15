@@ -16,14 +16,13 @@ export const Select: ComponentStyleConfig = {
                 _placeholder: {
                     color: "secondary.50",
                 },
-                h: "69px",
-                fontFamily: "'GothamMedium', sans-serif",
-                color: "secondary.800",
-                px: 6,
-                borderRadius: 40,
                 _focus: {
-                    borderColor: "primary.500",
+                    borderColor: "secondary.500",
+                    bg: "secondary.50",
+                    outline: "none",
+                    boxShadow: "0 0 0 0",
                 },
+                px: 6,
                 [`@media (min-width: ${props.theme.breakpoints.base})`]: {
                     h: "50px",
                 },

@@ -4,7 +4,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 const Categories: React.FC = () => {
     return (
         <Flex justifyContent="space-around" my={10} gap={5} direction="column">
-            <Flex justifyContent="space-between" mx="auto" w={"75%"}>
+            <Flex justifyContent="space-between" mx="auto" w={"90%"}>
                 <Flex
                     w="30%"
                     h={330}
@@ -98,7 +98,7 @@ const Categories: React.FC = () => {
                     </Box>
                 </Flex>
             </Flex>
-            <Flex justifyContent="space-between" mx="auto" w={"75%"}>
+            <Flex justifyContent="space-between" mx="auto" w={"90%"}>
                 <Flex
                     w="30%"
                     h={330}

@@ -16,7 +16,7 @@ const MainLayout: React.FC<IProps> = ({ children, navbar }) => {
         <>
             <SiteHead />
             {navbar.hasNavbar && <Navbar colorTheming={navbar.colorTheming} />}
-            <Box>{children}</Box>
+            <Box mt={"20"}>{children}</Box>
         </>
     );
 };

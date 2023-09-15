@@ -1,0 +1,133 @@
+import React from "react";
+import {
+    Flex,
+    Text,
+    Image,
+    Heading,
+    Select,
+    NumberInput,
+    NumberInputField,
+    NumberInputStepper,
+    NumberIncrementStepper,
+    NumberDecrementStepper,
+    Button,
+} from "@chakra-ui/react";
+import { NextPage } from "next";
+import { useRouter } from "next/router";
+import MainLayout from "@/layout/MainLayout";
+import { IPart, camisas } from "@/resources/products/camisas";
+
+const ProductDetails: NextPage = () => {
+    const [product, setProduct] = React.useState<IPart>();
+    const [relations, setRelations] = React.useState<IPart[]>([]);
+    const router = useRouter();
+    const { id } = router.query;
+
+    const getProduct = () => {
+        const camisa = camisas.find((item) => item.id === Number(id));
+        setProduct(camisa);
+    };
+    const getRelations = () => {
+        const produtosFiltrados = camisas.filter((produto) =>
+            product?.category.every((cat) => produto.category.includes(cat))
+        );
+        setRelations(produtosFiltrados);
+    };
+    React.useEffect(() => {
+        getProduct();
+        getRelations();
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id, product]);
+
+    return (
+        <MainLayout navbar={{ hasNavbar: true, colorTheming: "darkCyan" }}>
+            <Flex
+                direction="column"
+                bgColor="secondary.900"
+                bgPosition="cover"
+                py={10}
+                justifyContent="center"
+                alignItems="center"
+            >
+                <Flex>
+                    <Flex direction="column" gap={3}>
+                        <Image
+                            objectFit="cover"
+                            src={product?.image}
+                            alt={product?.nome}
+                            w={500}
+                            h={500}
+                        />
+                        <Flex gap={2}>
+                            {relations.map((item, index) => {
+                                return (
+                                    index < 4 && (
+                                        <Image
+                                            w="25%"
+                                            cursor="pointer"
+                                            key={index}
+                                            objectFit="cover"
+                                            src={item.image}
+                                            alt={item.nome}
+                                            h={100}
+                                        />
+                                    )
+                                );
+                            })}
+                        </Flex>
+                    </Flex>
+                    <Flex direction="column" ml={5}>
+                        <Flex>
+                            <Text
+                                fontWeight={600}
+                                color="black"
+                                mb={5}
+                                mr={2}
+                                cursor="pointer"
+                                transition=".4s"
+                                _hover={{ color: "primary.500" }}
+                            >
+                                Home
+                            </Text>
+                            <Text>/ {product?.marca}</Text>
+                        </Flex>
+                        <Heading>{product?.nome}</Heading>
+                        <Heading>R$ {product?.price}</Heading>
+                        <Select w="max-content">
+                            <option>Tamanho</option>
+                            {product?.tamanhos.map((item) => (
+                                <option
+                                    key={item}
+                                    style={{ textAlign: "center" }}
+                                >
+                                    {item}
+                                </option>
+                            ))}
+                        </Select>
+                        <Flex mt={5} gap={4}>
+                            <NumberInput
+                                size="lg"
+                                w={20}
+                                defaultValue={1}
+                                max={10}
+                                min={1}
+                            >
+                                <NumberInputField bg="primary.100" />
+                                <NumberInputStepper bg="white">
+                                    <NumberIncrementStepper bg="white" />
+                                    <NumberDecrementStepper bg="white" />
+                                </NumberInputStepper>
+                            </NumberInput>
+                            <Button h="100%" color="white" bg="primary.700">
+                                Adicionar ao carrinho
+                            </Button>
+                        </Flex>
+                    </Flex>
+                </Flex>
+            </Flex>
+        </MainLayout>
+    );
+};
+
+export default ProductDetails;
