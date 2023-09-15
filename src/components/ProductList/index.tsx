@@ -10,8 +10,10 @@ import {
 } from "@chakra-ui/react";
 import { camisas } from "@/resources/products/camisas";
 import CardProduct from "../CardProduct";
+import { useRouter } from "next/router";
 
 const ProductList: React.FC = () => {
+    const navigator = useRouter();
     return (
         <Flex justifyContent="space-around" my={10} direction="column">
             <Heading textAlign="center">Produtos em Destaque</Heading>
@@ -31,7 +33,13 @@ const ProductList: React.FC = () => {
                 mt={14}
             >
                 {camisas.map((item, key) => (
-                    <CardProduct product={item} key={key} />
+                    <CardProduct
+                        onClick={() =>
+                            navigator.push(`productDetails/${item.id}`)
+                        }
+                        product={item}
+                        key={key}
+                    />
                 ))}
             </Grid>
             <Flex gap={14} mt={16} justifyContent="center" flexWrap="wrap">

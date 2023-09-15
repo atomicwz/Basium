@@ -1,12 +1,14 @@
 import React from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { BsHandbag } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 interface IProps {
     colorTheming?: "ligthPink" | "darkCyan";
 }
 
 const Navbar: React.FC<IProps> = ({ colorTheming }) => {
+    const router = useRouter();
     return (
         <Flex
             position="fixed"
@@ -32,6 +34,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
                         fontWeight={600}
+                        onClick={() => router.push("/")}
                     >
                         Início
                     </Text>
@@ -39,6 +42,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
                         fontWeight={600}
+                        onClick={() => router.push("/feminino")}
                     >
                         Feminino
                     </Text>
@@ -46,6 +50,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
                         fontWeight={600}
+                        onClick={() => router.push("/allProducts")}
                     >
                         Todos os produtos
                     </Text>
@@ -53,6 +58,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
                         fontWeight={600}
+                        onClick={() => router.push("/tip")}
                     >
                         Dicas
                     </Text>
@@ -60,6 +66,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
                         fontWeight={600}
+                        onClick={() => router.push("/about")}
                     >
                         Sobre
                     </Text>
@@ -67,10 +74,11 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                         cursor="pointer"
                         _hover={{ color: "primary.500" }}
                         fontWeight={600}
+                        onClick={() => router.push("/contact")}
                     >
                         Contato
                     </Text>
-                    <Box cursor="pointer">
+                    <Box cursor="pointer" onClick={() => router.push("/cart")}>
                         <BsHandbag color="white" />
                     </Box>
                 </Flex>

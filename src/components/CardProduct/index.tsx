@@ -6,12 +6,14 @@ import { IPart } from "@/resources/products/camisas";
 
 interface IProps {
     product: IPart;
+    onClick: () => void;
 }
 
-const CardProduct: React.FC<IProps> = ({ product }) => {
+const CardProduct: React.FC<IProps> = ({ product, onClick }) => {
     return (
         <Flex
             cursor="pointer"
+            onClick={onClick}
             rounded={"30px"}
             p={3}
             w="100%"

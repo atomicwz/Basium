@@ -16,6 +16,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import MainLayout from "@/layout/MainLayout";
 import { IPart, camisas } from "@/resources/products/camisas";
+import { novaColecao } from "@/resources/products/novaColecao";
 
 const ProductDetails: NextPage = () => {
     const [product, setProduct] = React.useState<IPart>();
@@ -24,9 +25,11 @@ const ProductDetails: NextPage = () => {
     const { id } = router.query;
 
     const getProduct = () => {
-        const camisa = camisas.find((item) => item.id === Number(id));
+        const allProducts = camisas.concat(novaColecao);
+        const camisa = allProducts.find((item) => item.id === Number(id));
         setProduct(camisa);
     };
+
     const getRelations = () => {
         const produtosFiltrados = camisas.filter((produto) =>
             product?.category.every((cat) => produto.category.includes(cat))
@@ -87,6 +90,7 @@ const ProductDetails: NextPage = () => {
                                 cursor="pointer"
                                 transition=".4s"
                                 _hover={{ color: "primary.500" }}
+                                onClick={() => router.back()}
                             >
                                 Home
                             </Text>
