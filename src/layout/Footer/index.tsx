@@ -1,13 +1,5 @@
 import React from "react";
-import {
-    Flex,
-    Image,
-    ListItem,
-    List,
-    Text,
-    Box,
-    Center,
-} from "@chakra-ui/react";
+import { Flex, Image, ListItem, List, Text } from "@chakra-ui/react";
 
 const Footer: React.FC = () => {
     return (
@@ -126,7 +118,9 @@ const Footer: React.FC = () => {
                     (75) 98154-2072
                 </Text>
             </Flex>
-            <Text textAlign="center" mt={10}>© Estilo Basium, todos direitos reservados. 2023</Text>
+            <Text textAlign="center" mt={10}>
+                © Estilo Basium, todos direitos reservados. 2023
+            </Text>
         </Flex>
     );
 };
