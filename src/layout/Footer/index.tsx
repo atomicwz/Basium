@@ -1,21 +1,60 @@
 import React from "react";
-import { Flex, Image, ListItem, List, Text } from "@chakra-ui/react";
+import { Flex, Image, ListItem, List, Text, Grid } from "@chakra-ui/react";
 
 const Footer: React.FC = () => {
     return (
-        <Flex flexDirection="column" bg="secondary.900" px="10%" py={10}>
-            <Image src="/img/marca_cabecalho.png" alt="Logo" w={40} mb={5} />
-            <Flex justifyContent="space-between">
-                <Flex gap={2}>
-                    <Image w={150} src="/MARCAGIRASSOL.svg" alt="Girassol" />
-                    <Image w={150} src="/MARCAZILLA.svg" alt="Zilla" />
+        <Flex
+            flexDirection="column"
+            bg="secondary.900"
+            px={{ base: 10, xl: "10%" }}
+            py={10}
+        >
+            <Image
+                src="/img/marca_cabecalho.png"
+                alt="Logo"
+                w={40}
+                mb={5}
+                mx={{ base: "auto", md: "0" }}
+            />
+            <Flex
+                flexWrap="wrap"
+                justifyContent="space-between"
+                flexDirection={{ base: "column", lg: "row" }}
+            >
+                <Flex gap={2} mx="auto" mb={10}>
+                    <Image
+                        w={{ base: 100, md: 150 }}
+                        src="/MARCAGIRASSOL.svg"
+                        alt="Girassol"
+                    />
+                    <Image
+                        w={{ base: 100, md: 150 }}
+                        src="/MARCAZILLA.svg"
+                        alt="Zilla"
+                    />
                 </Flex>
-                <Flex gap={10} color="white" listStyleType="none">
-                    <List>
-                        <ListItem fontWeight={600} mb={5} cursor="default">
+                <Grid
+                    gridTemplateColumns={{
+                        base: "1fr",
+                        lg: "repeat(2,1fr)",
+                        xl: "repeat(3,1fr)",
+                    }}
+                    color="white"
+                    listStyleType="none"
+                    justifyContent="center"
+                    mx="auto"
+                >
+                    <List mx={{ base: "auto", sm: "none" }}>
+                        <ListItem
+                            textAlign={{ base: "center", md: "left" }}
+                            fontWeight={600}
+                            mb={5}
+                            cursor="default"
+                        >
                             Sobre
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -23,6 +62,7 @@ const Footer: React.FC = () => {
                             Sobre nós
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -30,6 +70,7 @@ const Footer: React.FC = () => {
                             Informação de entrega
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -37,6 +78,7 @@ const Footer: React.FC = () => {
                             Política de privacidade
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -44,11 +86,20 @@ const Footer: React.FC = () => {
                             Contato
                         </ListItem>
                     </List>
-                    <List>
-                        <ListItem fontWeight={600} mb={5} cursor="default">
+                    <List
+                        mx={{ base: "auto", sm: "none" }}
+                        my={{ base: 10, md: 0 }}
+                    >
+                        <ListItem
+                            textAlign={{ base: "center", md: "left" }}
+                            fontWeight={600}
+                            mb={5}
+                            cursor="default"
+                        >
                             Cliente
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -56,6 +107,7 @@ const Footer: React.FC = () => {
                             Ver Carrinho
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -63,6 +115,7 @@ const Footer: React.FC = () => {
                             Minha lista de Desejos
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -70,6 +123,7 @@ const Footer: React.FC = () => {
                             Acompanhar meu Pedido
                         </ListItem>
                         <ListItem
+                            textAlign={{ base: "center", md: "left" }}
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
@@ -77,23 +131,33 @@ const Footer: React.FC = () => {
                             Ajuda
                         </ListItem>
                     </List>
-                    <List>
-                        <ListItem fontWeight={600} mb={5} cursor="default">
+                    <List mx={{ base: "auto", sm: "none" }}>
+                        <ListItem
+                            fontWeight={600}
+                            mb={5}
+                            cursor="default"
+                            textAlign={{ base: "center", md: "left" }}
+                        >
                             Em breve nosso app
                         </ListItem>
-                        <ListItem cursor="default">
+                        <ListItem
+                            cursor="default"
+                            textAlign={{ base: "center", md: "left" }}
+                        >
                             App Store / Google Play
                         </ListItem>
-                        <Flex gap={3} mt={5}>
+                        <Flex gap={3} mt={5} flexWrap="wrap" mx="auto">
                             <Image
                                 rounded="md"
                                 src="/img/pay/app.jpg"
                                 alt="appstore"
+                                mx="auto"
                             />
                             <Image
                                 rounded="md"
                                 src="/img/pay/play.jpg"
                                 alt="googlePlay"
+                                mx="auto"
                             />
                         </Flex>
                         <ListItem cursor="default" mt={5}>
@@ -107,7 +171,7 @@ const Footer: React.FC = () => {
                             />
                         </ListItem>
                     </List>
-                </Flex>
+                </Grid>
             </Flex>
             <Flex flexDir="column">
                 <Text fontSize={14} mt={5} as="i">
@@ -118,7 +182,7 @@ const Footer: React.FC = () => {
                     (75) 98154-2072
                 </Text>
             </Flex>
-            <Text textAlign="center" mt={10}>
+            <Text textAlign={{ base: "center", md: "left" }} mt={10}>
                 © Estilo Basium, todos direitos reservados. 2023
             </Text>
         </Flex>
