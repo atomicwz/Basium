@@ -27,8 +27,10 @@ const Drawable: React.FC = () => {
                 position="fixed"
                 top={-1}
                 left={-1}
+                right={-5}
                 h={90}
-                w="100%"
+                w="101%"
+                zIndex={9999}
                 alignItems="center"
                 px={4}
                 display={{ base: "flex", md: "none" }}
@@ -38,8 +40,10 @@ const Drawable: React.FC = () => {
                     <BsHandbag color="black" size={25} />
                     <Button
                         display={{ base: "block", md: "none" }}
-                        onClick={onOpen}
+                        onClick={isOpen ? onClose : onOpen}
                         bg="transparent"
+                        _focus={{ bg: "transparent" }}
+                        _hover={{ bg: "transparent" }}
                     >
                         <AiOutlineMenuFold color="black" size={25} />
                     </Button>
@@ -49,7 +53,7 @@ const Drawable: React.FC = () => {
                 <DrawerOverlay />
                 <DrawerContent bg="#E3E6F3">
                     <DrawerCloseButton />
-                    <DrawerBody mt={10} gap={5} display="flex" flexDir="column">
+                    <DrawerBody mt={28} gap={5} display="flex" flexDir="column">
                         <Link href="/">
                             <Text fontWeight={600} fontSize={20}>
                                 Início
