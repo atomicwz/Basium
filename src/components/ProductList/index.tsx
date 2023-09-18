@@ -42,23 +42,32 @@ const ProductList: React.FC = () => {
                     />
                 ))}
             </Grid>
-            <Flex gap={14} mt={16} justifyContent="center" flexWrap="wrap">
+            <Flex
+                gap={{ base: 5, md: 14 }}
+                mt={16}
+                justifyContent="center"
+                flexWrap="wrap"
+                px={5}
+            >
                 <Image
-                    w="27%"
+                    minW={325}
+                    maxW={400}
                     h={288}
                     objectFit="cover"
                     src="/imagem_loja2.png"
                     alt="Image Loja"
                 />
                 <Image
-                    w="27%"
+                    minW={325}
+                    maxW={400}
                     h={288}
                     objectFit="cover"
                     src="/imagem_loja.png"
                     alt="Image Loja"
                 />
                 <Image
-                    w="27%"
+                    minW={325}
+                    maxW={400}
                     h={288}
                     objectFit="cover"
                     src="/imagem_fundadores.png"
