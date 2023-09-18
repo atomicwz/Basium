@@ -3,7 +3,12 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 
 const Categories: React.FC = () => {
     return (
-        <Flex justifyContent="space-around" my={10} gap={5} direction="column">
+        <Flex
+            justifyContent="space-around"
+            my={10}
+            gap={{ base: 0, md: 5 }}
+            direction="column"
+        >
             <Flex
                 justifyContent="space-between"
                 mx="auto"
