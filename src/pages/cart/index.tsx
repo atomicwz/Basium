@@ -1,6 +1,6 @@
 import React from "react";
 import MainLayout from "@/layout/MainLayout";
-import { Center, Flex, Text, Heading } from "@chakra-ui/react";
+import { Center, Flex, Text, Heading, Button } from "@chakra-ui/react";
 import Table from "@/components/Table";
 
 const Cart = () => {
@@ -22,6 +22,17 @@ const Cart = () => {
                     </Text>
                 </Center>
                 <Table />
+                <Button
+                    w="max-content"
+                    bg="primary.500"
+                    color="white"
+                    mx="auto"
+                    _hover={{
+                        bg: "primary.400",
+                    }}
+                >
+                    Finalizar Pedido
+                </Button>
             </Flex>
         </MainLayout>
     );

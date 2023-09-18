@@ -44,20 +44,17 @@ const Table = () => {
             <TableChakra variant="simple">
                 <Thead color="white">
                     <Tr>
-                        <Th color="white">Remover</Th>
                         <Th color="white">Imagem</Th>
                         <Th color="white">Produto</Th>
                         <Th color="white">Valor</Th>
                         <Th color="white">Quantidade</Th>
                         <Th color="white">Total</Th>
+                        <Th color="white">Remover</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
                     {itens.map((item, key) => (
                         <Tr key={key}>
-                            <Td>
-                                <CloseButton color="white" />
-                            </Td>
                             <Td>
                                 <Image
                                     w={14}
@@ -83,6 +80,9 @@ const Table = () => {
                                 </NumberInput>
                             </Td>
                             <Td>R$ {item.quantity * item.valor}</Td>
+                            <Td>
+                                <CloseButton color="white" />
+                            </Td>
                         </Tr>
                     ))}
                 </Tbody>
