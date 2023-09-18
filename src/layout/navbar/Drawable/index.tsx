@@ -10,13 +10,16 @@ import {
     Text,
     Flex,
     Image,
+    Box,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import { BsHandbag } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 const Drawable: React.FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const router = useRouter();
 
     return (
         <>
@@ -35,9 +38,21 @@ const Drawable: React.FC = () => {
                 px={4}
                 display={{ base: "flex", md: "none" }}
             >
-                <Image src="/img/marca_cabecalho.png" alt="Logo" w={32} />
+                <Box
+                    color="black"
+                    cursor="pointer"
+                    onClick={() => router.push("/")}
+                >
+                    <Image src="/img/marca_cabecalho.png" alt="Logo" w={32} />
+                </Box>
                 <Flex gap={3} alignItems="center">
-                    <BsHandbag color="black" size={25} />
+                    <Box
+                        color="black"
+                        cursor="pointer"
+                        onClick={() => router.push("/cart")}
+                    >
+                        <BsHandbag size={25} />
+                    </Box>
                     <Button
                         display={{ base: "block", md: "none" }}
                         onClick={isOpen ? onClose : onOpen}

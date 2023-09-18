@@ -25,6 +25,7 @@ const Categories: React.FC = () => {
                     justifyContent="center"
                     bgSize="cover"
                     bgPosition="center"
+                    mx="auto"
                     p={5}
                 >
                     <Text fontWeight={600} fontSize={{ base: 32, md: 42 }}>
@@ -63,6 +64,7 @@ const Categories: React.FC = () => {
                     justifyContent="center"
                     bgSize="cover"
                     bgPosition="center"
+                    mx="auto"
                     p={5}
                 >
                     <Text fontWeight={600} fontSize={{ base: 32, md: 42 }}>
@@ -101,6 +103,7 @@ const Categories: React.FC = () => {
                     justifyContent="center"
                     bgSize="cover"
                     bgPosition="center"
+                    mx="auto"
                     p={5}
                 >
                     <Text fontWeight={600} fontSize={{ base: 32, md: 42 }}>
@@ -146,6 +149,7 @@ const Categories: React.FC = () => {
                     justifyContent="center"
                     bgSize="cover"
                     bgPosition="center"
+                    mx="auto"
                     p={5}
                 >
                     <Text fontWeight={600} fontSize={{ base: 32, md: 42 }}>
@@ -184,6 +188,7 @@ const Categories: React.FC = () => {
                     justifyContent="center"
                     bgSize="cover"
                     bgPosition="center"
+                    mx="auto"
                     p={5}
                 >
                     <Text fontWeight={600} fontSize={{ base: 32, md: 42 }}>
@@ -222,6 +227,7 @@ const Categories: React.FC = () => {
                     justifyContent="center"
                     bgSize="cover"
                     bgPosition="center"
+                    mx="auto"
                     p={5}
                 >
                     <Text fontWeight={600} fontSize={{ base: 32, md: 42 }}>
