@@ -3,6 +3,7 @@ import { Box } from "@chakra-ui/react";
 import Navbar from "../Navbar";
 import SiteHead from "@/components/SiteHead";
 import Footer from "../Footer";
+import Drawable from "../Navbar/Drawable";
 
 interface IProps {
     children: React.ReactNode;
@@ -16,7 +17,12 @@ const MainLayout: React.FC<IProps> = ({ children, navbar }) => {
     return (
         <>
             <SiteHead />
-            {navbar.hasNavbar && <Navbar colorTheming={navbar.colorTheming} />}
+            {navbar.hasNavbar && (
+                <>
+                    <Navbar colorTheming={navbar.colorTheming} />
+                    <Drawable />
+                </>
+            )}
             <Box mt={"20"}>{children}</Box>
             <Footer />
         </>

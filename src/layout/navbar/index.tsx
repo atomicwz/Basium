@@ -18,6 +18,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
             w="100%"
             zIndex={1000}
             alignItems="center"
+            display={{ base: "none", md: "block" }}
             bg={colorTheming === "darkCyan" ? "secondary.900" : "primary.500"}
             py={10}
             boxShadow="md"
