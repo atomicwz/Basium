@@ -52,7 +52,7 @@ const HomeCarousel: React.FC = () => {
     ];
 
     return (
-        <Flex mt={"20"} w="100%" flexDirection="column">
+        <Flex mt={{ base: 10, md: "20" }} w="100%" flexDirection="column">
             <Carousel
                 showIndicators={false}
                 showArrows={false}
@@ -68,18 +68,25 @@ const HomeCarousel: React.FC = () => {
                         key={index}
                         flexDirection="column"
                         justifyContent="space-between"
-                        bgImage={banner.url}
+                        bgImage={{ base: "none", md: banner.url }}
                         mx="auto"
                         bgRepeat="no-repeat"
                         bgPosition="right"
-                        h="90vh"
+                        h={{ base: "40vh", md: "90vh" }}
                     >
-                        <Flex direction="column" mt={44} ml="10%">
-                            <Text fontSize={32} fontWeight={600}>
+                        <Flex
+                            direction="column"
+                            mt={{ base: 0, md: 44 }}
+                            ml="10%"
+                        >
+                            <Text
+                                fontSize={{ base: 28, md: 32 }}
+                                fontWeight={600}
+                            >
                                 {banner.text1}
                             </Text>
                             <Text
-                                fontSize={60}
+                                fontSize={{ base: 44, md: 60 }}
                                 color="primary.500"
                                 fontWeight={600}
                                 lineHeight={0.9}
@@ -87,7 +94,7 @@ const HomeCarousel: React.FC = () => {
                                 {banner.text2}
                             </Text>
                             <Text
-                                fontSize={70}
+                                fontSize={{ base: 38, md: 70 }}
                                 color="primary.400"
                                 fontWeight={600}
                                 lineHeight={0.9}
