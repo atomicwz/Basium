@@ -42,15 +42,11 @@ const Table = () => {
         }
     }, []);
 
-    const attQuantity = (id: number, newQuantity: number) => {
-        setProducts((products) =>
-            products.map((product) =>
-                product.id === id
-                    ? { ...product, quantity: newQuantity.toString() }
-                    : product
-            )
-        );
-        localStorage.setItem("cartItems", JSON.stringify(products));
+    const attQuantity = async (index: number, newQuantity: number) => {
+        const localProducts = [...products];
+        localProducts[index].quantity = newQuantity.toString();
+        setProducts(localProducts);
+        localStorage.setItem("cartItems", JSON.stringify(localProducts));
     };
 
     return (
@@ -86,7 +82,7 @@ const Table = () => {
                                     max={10}
                                     min={1}
                                     onChange={(e) =>
-                                        attQuantity(item.id, Number(e))
+                                        attQuantity(key, Number(e))
                                     }
                                 >
                                     <NumberInputField bg="primary.100" />
