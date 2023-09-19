@@ -14,13 +14,12 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
             position="fixed"
             top={0}
             left={0}
-            h={50}
+            h="90px"
             w="100%"
             zIndex={1000}
             alignItems="center"
             display={{ base: "none", md: "block" }}
             bg={colorTheming === "darkCyan" ? "secondary.900" : "primary.500"}
-            py={10}
             boxShadow="md"
         >
             <Flex
@@ -28,6 +27,7 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                 justifyContent="space-between"
                 alignItems="center"
                 mx="auto"
+                h="100%"
             >
                 <Image src="/img/marca_cabecalho.png" alt="Logo" w={32} />
                 <Flex gap={10} alignItems="center">
@@ -79,8 +79,14 @@ const Navbar: React.FC<IProps> = ({ colorTheming }) => {
                     >
                         Contato
                     </Text>
-                    <Box cursor="pointer" onClick={() => router.push("/cart")}>
-                        <BsHandbag color="white" />
+                    <Box
+                        cursor="pointer"
+                        color="white"
+                        transition=".4s"
+                        onClick={() => router.push("/cart")}
+                        _hover={{ color: "primary.500" }}
+                    >
+                        <BsHandbag size={25} />
                     </Box>
                 </Flex>
             </Flex>

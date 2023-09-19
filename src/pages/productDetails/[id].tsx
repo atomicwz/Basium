@@ -68,6 +68,7 @@ const ProductDetails: NextPage = () => {
                     duration: 3000,
                     isClosable: true,
                 });
+                router.push("/cart");
                 return;
             }
             toast({

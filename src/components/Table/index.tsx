@@ -7,6 +7,7 @@ import {
     Tbody,
     Tfoot,
     Td,
+    Text,
     CloseButton,
     Image,
     NumberInput,
@@ -49,6 +50,13 @@ const Table = () => {
         localStorage.setItem("cartItems", JSON.stringify(localProducts));
     };
 
+    const onClickRemove = (index: number) => {
+        const localProducts = [...products];
+        localProducts.splice(index, 1);
+        setProducts(localProducts);
+        localStorage.setItem("cartItems", JSON.stringify(localProducts));
+    };
+
     return (
         <TableContainer w="80%" mx="auto" color="white">
             <TableChakra variant="simple">
@@ -63,41 +71,48 @@ const Table = () => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {products.map((item, key) => (
-                        <Tr key={key}>
-                            <Td>
-                                <Image
-                                    w={14}
-                                    alt={item.nome}
-                                    src={item.image}
-                                />
-                            </Td>
-                            <Td>{item.nome}</Td>
-                            <Td>R$ {item.price}</Td>
-                            <Td color="black">
-                                <NumberInput
-                                    size="sm"
-                                    w={20}
-                                    defaultValue={item.quantity}
-                                    max={10}
-                                    min={1}
-                                    onChange={(e) =>
-                                        attQuantity(key, Number(e))
-                                    }
-                                >
-                                    <NumberInputField bg="primary.100" />
-                                    <NumberInputStepper bg="white">
-                                        <NumberIncrementStepper bg="white" />
-                                        <NumberDecrementStepper bg="white" />
-                                    </NumberInputStepper>
-                                </NumberInput>
-                            </Td>
-                            <Td>R$ {Number(item.quantity) * item.price}</Td>
-                            <Td>
-                                <CloseButton color="white" />
-                            </Td>
-                        </Tr>
-                    ))}
+                    {products ? (
+                        products.map((item, key) => (
+                            <Tr key={key}>
+                                <Td>
+                                    <Image
+                                        w={14}
+                                        alt={item.nome}
+                                        src={item.image}
+                                    />
+                                </Td>
+                                <Td>{item.nome}</Td>
+                                <Td>R$ {item.price}</Td>
+                                <Td color="black">
+                                    <NumberInput
+                                        size="sm"
+                                        w={20}
+                                        defaultValue={item.quantity}
+                                        max={10}
+                                        min={1}
+                                        onChange={(e) =>
+                                            attQuantity(key, Number(e))
+                                        }
+                                    >
+                                        <NumberInputField bg="primary.100" />
+                                        <NumberInputStepper bg="white">
+                                            <NumberIncrementStepper bg="white" />
+                                            <NumberDecrementStepper bg="white" />
+                                        </NumberInputStepper>
+                                    </NumberInput>
+                                </Td>
+                                <Td>R$ {Number(item.quantity) * item.price}</Td>
+                                <Td>
+                                    <CloseButton
+                                        onClick={() => onClickRemove(key)}
+                                        color="white"
+                                    />
+                                </Td>
+                            </Tr>
+                        ))
+                    ) : (
+                        <Text>Não há produtos no carrinho.</Text>
+                    )}
                 </Tbody>
                 <Tfoot>
                     <Tr>
