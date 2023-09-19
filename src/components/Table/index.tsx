@@ -88,7 +88,6 @@ const Table = () => {
                                         size="sm"
                                         w={20}
                                         defaultValue={item.quantity}
-                                        max={10}
                                         min={1}
                                         onChange={(e) =>
                                             attQuantity(key, Number(e))
