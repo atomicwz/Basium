@@ -24,8 +24,6 @@ const ProductDetails: NextPage = () => {
     const [quantity, setQuantity] = React.useState(1);
     const [size, setSize] = React.useState("não selecionado");
     const [relations, setRelations] = React.useState<IPart[]>([]);
-    const local = localStorage.getItem("cartItems");
-    const cartItems = JSON.parse(local as string);
     const router = useRouter();
     const { id } = router.query;
     const toast = useToast();
@@ -41,9 +39,14 @@ const ProductDetails: NextPage = () => {
         );
         setRelations(produtosFiltrados);
     };
-    const addProduct = () => {
+    const addProduct = async () => {
         const allProducts = [];
-        allProducts.push(...(cartItems || []));
+        if (typeof window !== "undefined") {
+            const local = localStorage.getItem("cartItems");
+            const cartItems = await JSON.parse(local as string);
+            allProducts.push(...(cartItems || []));
+        }
+
         if (product) {
             const alreadyExist = allProducts.find(
                 (item) => item.id === product.id
@@ -76,7 +79,6 @@ const ProductDetails: NextPage = () => {
             });
         }
     };
-
     React.useEffect(() => {
         getProduct();
         getRelations();

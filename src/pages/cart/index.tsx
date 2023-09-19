@@ -26,6 +26,7 @@ const Cart = () => {
                     w="max-content"
                     bg="primary.500"
                     color="white"
+                    mt={5}
                     mx="auto"
                     _hover={{
                         bg: "primary.400",

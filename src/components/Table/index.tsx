@@ -17,27 +17,41 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
+interface IItems {
+    nome: string;
+    id: number;
+    marca: string;
+    price: number;
+    image: string;
+    description: string;
+    tamanhos: string[];
+    category: string[];
+    quantity: string;
+    size: string;
+}
+
 const Table = () => {
-    const itens = [
-        {
-            urlImage: "/img/products/f1.jpg",
-            nome: "Camisa Teste 1",
-            valor: 30,
-            quantity: 2,
-        },
-        {
-            urlImage: "/img/products/f2.jpg",
-            nome: "Camisa Teste 2",
-            valor: 150,
-            quantity: 3,
-        },
-        {
-            urlImage: "/img/products/f3.jpg",
-            nome: "Camisa Teste 3",
-            valor: 33,
-            quantity: 1,
-        },
-    ];
+    const [products, setProducts] = React.useState<IItems[]>([]);
+
+    React.useEffect(() => {
+        if (typeof window !== "undefined") {
+            const local = localStorage.getItem("cartItems");
+            if (local) {
+                setProducts(JSON.parse(local));
+            }
+        }
+    }, []);
+
+    const attQuantity = (id: number, newQuantity: number) => {
+        setProducts((products) =>
+            products.map((product) =>
+                product.id === id
+                    ? { ...product, quantity: newQuantity.toString() }
+                    : product
+            )
+        );
+        localStorage.setItem("cartItems", JSON.stringify(products));
+    };
 
     return (
         <TableContainer w="80%" mx="auto" color="white">
@@ -53,17 +67,17 @@ const Table = () => {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {itens.map((item, key) => (
+                    {products.map((item, key) => (
                         <Tr key={key}>
                             <Td>
                                 <Image
                                     w={14}
                                     alt={item.nome}
-                                    src={item.urlImage}
+                                    src={item.image}
                                 />
                             </Td>
                             <Td>{item.nome}</Td>
-                            <Td>R$ {item.valor}</Td>
+                            <Td>R$ {item.price}</Td>
                             <Td color="black">
                                 <NumberInput
                                     size="sm"
@@ -71,6 +85,9 @@ const Table = () => {
                                     defaultValue={item.quantity}
                                     max={10}
                                     min={1}
+                                    onChange={(e) =>
+                                        attQuantity(item.id, Number(e))
+                                    }
                                 >
                                     <NumberInputField bg="primary.100" />
                                     <NumberInputStepper bg="white">
@@ -79,7 +96,7 @@ const Table = () => {
                                     </NumberInputStepper>
                                 </NumberInput>
                             </Td>
-                            <Td>R$ {item.quantity * item.valor}</Td>
+                            <Td>R$ {Number(item.quantity) * item.price}</Td>
                             <Td>
                                 <CloseButton color="white" />
                             </Td>
@@ -90,9 +107,10 @@ const Table = () => {
                     <Tr>
                         <Th color="white">
                             Valor total: R${" "}
-                            {itens.reduce(
+                            {products.reduce(
                                 (acumulador, numero) =>
-                                    acumulador + numero.valor * numero.quantity,
+                                    acumulador +
+                                    numero.price * Number(numero.quantity),
                                 0
                             )}
                         </Th>
