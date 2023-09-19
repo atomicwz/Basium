@@ -1,7 +1,9 @@
 import React from "react";
 import { Flex, Image, ListItem, List, Text, Grid } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 const Footer: React.FC = () => {
+    const router = useRouter();
     return (
         <Flex
             flexDirection="column"
@@ -103,6 +105,7 @@ const Footer: React.FC = () => {
                             transition=".4s"
                             _hover={{ opacity: 0.4 }}
                             cursor="pointer"
+                            onClick={() => router.push("/cart")}
                         >
                             Ver Carrinho
                         </ListItem>
