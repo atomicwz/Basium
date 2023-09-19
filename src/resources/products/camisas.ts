@@ -17,7 +17,7 @@ const camisas: IPart[] = [
         price: 78,
         image: "/img/products/f1.jpg",
         tamanhos: ["P", "M"],
-        category: ["camisas"],
+        category: ["Camisas"],
         description:
             "The Gildan Ultra Cotton T-shirt is made from a substantial 6.0 oz. per sq. yd. fabric constructed from 100% cotton, this classic fit preshrunk jersey knit provides unmatched comfort with each wear.",
     },
@@ -28,7 +28,7 @@ const camisas: IPart[] = [
         price: 78,
         image: "/img/products/f2.jpg",
         tamanhos: ["P", "M", "GG"],
-        category: ["camisas", "newCollection"],
+        category: ["Camisas", "newCollection"],
         description:
             "Featuring a taped neck and shoulder, and a seamless double-needle collar, and available in a range of colors, it offers it all in the ultimate head-turning package.",
     },
